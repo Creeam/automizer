@@ -33,14 +33,21 @@ public class Controller {
     public void onClickMethodSortButton(){
         System.out.println(path);
         File folder = new File(path);
+        int temp = 0;
         for(File f : folder.listFiles()){
-            if("Main.java".equals(f.getName())){
-                System.out.println("Yes");
+            switch (AllFunctions.extention(f.getName())){
+                case ".mp3":
+                    System.out.println("МУЗОНН!!!!!!!!!" + "       " + f.getName());
+                    ++temp;
+
+                    break;
+                default:
+                    System.out.println("Неизвестные расширения." + f.getName());
+                    break;
             }
-            else{
-                System.out.println("No");
-            }
+
         }
+        System.out.println(temp);
     }
 
 }
