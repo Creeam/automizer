@@ -12,11 +12,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Automizer");
-        primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.setMaxWidth(600);
-        primaryStage.setMaxHeight(400);
-        primaryStage.setMinWidth(600);
-        primaryStage.setMinHeight(400);
+        primaryStage.setScene(new Scene(root, 620, 380));
+        primaryStage.setMaxWidth(620);
+        primaryStage.setMaxHeight(380);
+        primaryStage.setMinWidth(620);
+        primaryStage.setMinHeight(380);
         primaryStage.show();
     }
 

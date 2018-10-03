@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CCCCCC;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CCCCCC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
       <AnchorPane layoutY="77.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: #7A7A7A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <Button fx:id="sortButton" layoutX="474.0" layoutY="273.0" mnemonicParsing="false" onAction="#onClickMethodSortButton" prefHeight="28.0" prefWidth="112.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="Сортировать" textFill="#7a7a7a">
+            <Button fx:id="sortButton" layoutX="474.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickMethodSortButton" prefHeight="28.0" prefWidth="112.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="Сортировать" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
@@ -20,20 +20,20 @@
                   <Font name="Open Sans Bold" size="28.0" />
                </font>
             </Label>
-            <TextField fx:id="wayText1" layoutX="121.0" layoutY="48.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
-            <Button fx:id="waybutton1" layoutX="474.0" layoutY="48.0" mnemonicParsing="false" onAction="#onClickMethodWayButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
+            <TextField fx:id="wayTextM" layoutX="121.0" layoutY="48.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
+            <Button fx:id="musicWayButton" layoutX="474.0" layoutY="48.0" mnemonicParsing="false" onAction="#onClickMethodWayMButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
             </Button>
-            <TextField fx:id="wayText11" layoutX="121.0" layoutY="89.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
-            <Button fx:id="waybutton11" layoutX="474.0" layoutY="89.0" mnemonicParsing="false" onAction="#onClickMethodWayButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
+            <TextField fx:id="wayTextV" layoutX="121.0" layoutY="89.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
+            <Button fx:id="videoWayButton" layoutX="474.0" layoutY="89.0" mnemonicParsing="false" onAction="#onClickMethodWayVButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
             </Button>
-            <TextField fx:id="wayText12" layoutX="121.0" layoutY="130.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
-            <Button fx:id="waybutton12" layoutX="474.0" layoutY="130.0" mnemonicParsing="false" onAction="#onClickMethodWayButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
+            <TextField fx:id="wayTextT" layoutX="121.0" layoutY="130.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
+            <Button fx:id="textWayButton" layoutX="474.0" layoutY="130.0" mnemonicParsing="false" onAction="#onClickMethodWayTButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
@@ -53,11 +53,22 @@
                   <Font name="Open Sans Bold" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="sortButton1" layoutX="310.0" layoutY="273.0" mnemonicParsing="false" onAction="#onClickMethodSortButton" prefHeight="28.0" prefWidth="155.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="История изменений" textFill="#7a7a7a">
+            <Button fx:id="sortButton1" layoutX="310.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickMethodSortButton" prefHeight="28.0" prefWidth="155.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="История изменений" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
             </Button>
+            <TextField fx:id="wayTextD" layoutX="121.0" layoutY="171.0" prefHeight="28.0" prefWidth="344.0" style="-fx-background-radius: 50;" />
+            <Button fx:id="documentWayButton" layoutX="474.0" layoutY="171.0" mnemonicParsing="false" onAction="#onClickMethodWayDButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #cccccc;" text="Выбрать путь" textFill="#7a7a7a">
+               <font>
+                  <Font name="Open Sans" size="13.0" />
+               </font>
+            </Button>
+            <Label layoutX="14.0" layoutY="171.0" prefHeight="28.0" prefWidth="100.0" text="Документ" textFill="#cccccc">
+               <font>
+                  <Font name="Open Sans Bold" size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
         <Button fx:id="waybutton" layoutX="474.0" layoutY="40.0" mnemonicParsing="false" onAction="#onClickMethodWayButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #7a7a7a;" text="Выбрать путь" textFill="#cccccc">
@@ -72,4 +83,3 @@
       </Label>
     </children>
 </AnchorPane>
-    
