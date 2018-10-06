@@ -98,10 +98,10 @@ public class Controller {
         Scene scene = new Scene(root);
         stage.setTitle("Automizer | History");
         stage.setScene(scene);
-        stage.setMaxWidth(620);
-        stage.setMaxHeight(380);
-        stage.setMinWidth(620);
-        stage.setMinHeight(380);
+        stage.setMaxWidth(336);
+        stage.setMaxHeight(400);
+        stage.setMinWidth(336);
+        stage.setMinHeight(400);
         stage.show();
     }
 }
