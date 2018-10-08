@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Alert;
+
 import java.io.*;
 
 
@@ -37,6 +39,7 @@ public class AllFunctions {
         fos.close();//записанный файл
 
         boolean isdeleted = source.delete();
+
     }
 
     static public void search(String path, String pathM, String pathV, String pathT, String pathD) throws IOException{
@@ -61,7 +64,19 @@ public class AllFunctions {
                     break;
             }
         }
+        MessageBox("Automizer", "Сортировка прошла успешно!", Alert.AlertType.INFORMATION);
 
+
+    }
+
+    static public void MessageBox(String title, String message, Alert.AlertType type){
+        Alert alert = new Alert(type);
+
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 
 
