@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -10,7 +11,7 @@
     <children>
       <AnchorPane layoutY="77.0" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: #7A7A7A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <Button fx:id="sortButton" layoutX="474.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickMethodSortButton" prefHeight="28.0" prefWidth="112.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="Сортировать" textFill="#7a7a7a">
+            <Button fx:id="sortButton" layoutX="474.0" layoutY="229.0" mnemonicParsing="false" onAction="#onClickMethodSortButton" prefHeight="28.0" prefWidth="112.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="Сортировать" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
@@ -53,7 +54,7 @@
                   <Font name="Open Sans Bold" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="historyButton" layoutX="310.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickMethodHistoryButton" prefHeight="28.0" prefWidth="155.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="История изменений" textFill="#7a7a7a">
+            <Button fx:id="historyButton" layoutX="310.0" layoutY="229.0" mnemonicParsing="false" onAction="#onClickMethodHistoryButton" prefHeight="28.0" prefWidth="155.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="История изменений" textFill="#7a7a7a">
                <font>
                   <Font name="Open Sans" size="13.0" />
                </font>
@@ -69,6 +70,17 @@
                   <Font name="Open Sans Bold" size="17.0" />
                </font>
             </Label>
+            <Button fx:id="timerPowerButton" layoutX="188.0" layoutY="229.0" mnemonicParsing="false" onAction="#onClickMethodTimerPowerButton" prefHeight="28.0" prefWidth="112.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="Таймер сна" textFill="#7a7a7a">
+               <font>
+                  <Font name="Open Sans" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="parantalControlButton" layoutX="22.0" layoutY="229.0" mnemonicParsing="false" onAction="#onClickMethodParantalControlButton" prefHeight="28.0" prefWidth="155.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #cccccc;" text="Родтельский контроль" textFill="#7a7a7a">
+               <font>
+                  <Font name="Open Sans" size="13.0" />
+               </font>
+            </Button>
+            <ProgressBar fx:id="progressBar" layoutX="22.0" layoutY="278.0" prefHeight="16.0" prefWidth="565.0" progress="0.0" />
          </children>
       </AnchorPane>
         <Button fx:id="waybutton" layoutX="474.0" layoutY="40.0" mnemonicParsing="false" onAction="#onClickMethodWayButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #7a7a7a;" text="Выбрать путь" textFill="#cccccc">

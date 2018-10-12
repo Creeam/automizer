@@ -14,9 +14,9 @@ public class Main extends Application {
         primaryStage.setTitle("Automizer");
         primaryStage.setScene(new Scene(root, 620, 380));
         primaryStage.setMaxWidth(620);
-        primaryStage.setMaxHeight(380);
+        primaryStage.setMaxHeight(420);
         primaryStage.setMinWidth(620);
-        primaryStage.setMinHeight(380);
+        primaryStage.setMinHeight(420);
         primaryStage.show();
     }
 

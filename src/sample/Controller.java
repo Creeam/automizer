@@ -15,30 +15,21 @@ import java.io.IOException;
 
 public class Controller {
 
-    @FXML
-    private Button waybutton;
-    @FXML
-    private Button sortButton;
-    @FXML
-    private Button historyButton;
-    @FXML
-    private Button musicWayButton;
-    @FXML
-    private Button videoWayButton;
-    @FXML
-    private Button textWayButton;
-    @FXML
-    private Button documentWayButton;
-    @FXML
-    private TextField wayText;
-    @FXML
-    private TextField wayTextM;
-    @FXML
-    private TextField wayTextV;
-    @FXML
-    private TextField wayTextT;
-    @FXML
-    private TextField wayTextD;
+    @FXML private Button waybutton;
+    @FXML private Button sortButton;
+    @FXML private Button historyButton;
+    @FXML private Button musicWayButton;
+    @FXML private Button videoWayButton;
+    @FXML private Button textWayButton;
+    @FXML private Button documentWayButton;
+    @FXML private Button timerPowerButton;
+    @FXML private Button parantalControlButton;
+
+    @FXML private TextField wayText;
+    @FXML private TextField wayTextM;
+    @FXML private TextField wayTextV;
+    @FXML private TextField wayTextT;
+    @FXML private TextField wayTextD;
 
     private String mainPath;
     private String musicPath;
@@ -88,7 +79,38 @@ public class Controller {
 
     public void onClickMethodSortButton() throws IOException{
         System.out.println(mainPath);
-        AllFunctions.search(mainPath, musicPath, videoPath, textPath, docPath);
+        Sample.search(mainPath, musicPath, videoPath, textPath, docPath);
+    }
+
+    public void onClickMethodParantalControlButton(ActionEvent event) throws IOException{
+        Stage stage = new Stage();
+
+        Parent root = FXMLLoader.load(getClass().getResource("parantal control.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Automizer | Parantal Control");
+        stage.setScene(scene);
+        stage.setMaxWidth(336);
+        stage.setMaxHeight(400);
+        stage.setMinWidth(336);
+        stage.setMinHeight(400);
+        stage.show();
+    }
+
+    public void onClickMethodTimerPowerButton(ActionEvent event) throws IOException{
+        Stage stage = new Stage();
+
+        Parent root = FXMLLoader.load(getClass().getResource("power.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Automizer | Timer");
+        stage.setScene(scene);
+        stage.setMaxWidth(306);
+        stage.setMaxHeight(200);
+        stage.setMinWidth(306);
+        stage.setMinHeight(200);
+        stage.show();
+
+        Power p = new Power();
+        p.start();
     }
 
     public void onClickMethodHistoryButton(ActionEvent event) throws IOException{
