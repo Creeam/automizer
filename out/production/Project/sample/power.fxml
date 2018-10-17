@@ -18,11 +18,14 @@
             <Font name="Tahoma" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="171.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="5 мин" textFill="#cccccc" />
-      <Button layoutX="233.0" layoutY="56.0" mnemonicParsing="false" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="10 мин" textFill="#cccccc" />
-      <Button layoutX="171.0" layoutY="89.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="30 мин" textFill="#cccccc" />
-      <Button layoutX="233.0" layoutY="89.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="1 час" textFill="#cccccc" />
-      <Button fx:id="customTimeButton" layoutX="171.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickMethodCustomTimeButton" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="Применить" textFill="#cccccc" />
-      <Spinner fx:id="customTimeSpinner" layoutX="14.0" layoutY="121.0" />
+      <Button layoutX="171.0" layoutY="56.0" mnemonicParsing="false" onAction="#onClickMethodMin5" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="5 мин" textFill="#cccccc" />
+      <Button layoutX="233.0" layoutY="56.0" mnemonicParsing="false" onAction="#onClickMethodMin10" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="10 мин" textFill="#cccccc" />
+      <Button layoutX="171.0" layoutY="89.0" mnemonicParsing="false" onAction="#onClickMethodMin30" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="30 мин" textFill="#cccccc" />
+      <Button layoutX="233.0" layoutY="89.0" mnemonicParsing="false" onAction="#onClickMethodHour" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="1 час" textFill="#cccccc" />
+      <Button layoutX="171.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickMethodCustomTimeButton" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #7a7a7a; -fx-background-radius: 50;" text="Применить" textFill="#cccccc" />
+      <Spinner fx:id="customTimeSpinnerH" layoutX="13.0" layoutY="121.0" prefHeight="25.0" prefWidth="55.0" />
+      <Spinner fx:id="customTimeSpinnerM" layoutX="106.0" layoutY="121.0" prefHeight="25.0" prefWidth="55.0" />
+      <Label layoutX="73.0" layoutY="125.0" text="Мин" />
+      <Label layoutX="1.0" layoutY="125.0" text="Ч" />
    </children>
 </AnchorPane>

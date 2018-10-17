@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -14,16 +13,6 @@ import java.io.IOException;
 
 
 public class Controller {
-
-    @FXML private Button waybutton;
-    @FXML private Button sortButton;
-    @FXML private Button historyButton;
-    @FXML private Button musicWayButton;
-    @FXML private Button videoWayButton;
-    @FXML private Button textWayButton;
-    @FXML private Button documentWayButton;
-    @FXML private Button timerPowerButton;
-    @FXML private Button parantalControlButton;
 
     @FXML private TextField wayText;
     @FXML private TextField wayTextM;
@@ -87,6 +76,7 @@ public class Controller {
 
         Parent root = FXMLLoader.load(getClass().getResource("parantal control.fxml"));
         Scene scene = new Scene(root);
+        ParantalControl pc = new ParantalControl();
         stage.setTitle("Automizer | Parantal Control");
         stage.setScene(scene);
         stage.setMaxWidth(336);
@@ -98,9 +88,9 @@ public class Controller {
 
     public void onClickMethodTimerPowerButton(ActionEvent event) throws IOException{
         Stage stage = new Stage();
-
         Parent root = FXMLLoader.load(getClass().getResource("power.fxml"));
         Scene scene = new Scene(root);
+        Power p = new Power();
         stage.setTitle("Automizer | Timer");
         stage.setScene(scene);
         stage.setMaxWidth(306);
@@ -109,8 +99,6 @@ public class Controller {
         stage.setMinHeight(200);
         stage.show();
 
-        Power p = new Power();
-        p.start();
     }
 
     public void onClickMethodHistoryButton(ActionEvent event) throws IOException{
