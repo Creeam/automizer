@@ -1,9 +1,11 @@
 package sample;
 
 import javafx.scene.control.Alert;
+import jdk.nashorn.internal.scripts.JO;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.*;
-import java.util.Scanner;
 
 public class Sample {
 
@@ -22,27 +24,10 @@ public class Sample {
     }
 
     public void myMoveFile(String start_file, String finish_flie) throws IOException {
-
         File source = new File(start_file);
         File dest = new File(finish_flie);
-
-        // чтение файла
-        FileInputStream fip = new FileInputStream(source);
-        BufferedInputStream fbs= new BufferedInputStream(fip);
-
-        int size = fbs.available();
-        byte b[] = new byte[size];
-        fbs.read(b);
-
-        FileOutputStream fos = new FileOutputStream(finish_flie);
-        fos.write(b);
-
-        fip.close();//прочитанный файл
-        fbs.close();//буфф-прочитанный файл
-        fos.close();//записанный файл
-
-        boolean isdeleted = source.delete();
-
+        source.renameTo(new File(dest.toString()));
+        source.delete();
     }
 
     public void search(String path, String pathM, String pathV, String pathT, String pathO) throws IOException{
@@ -83,7 +68,7 @@ public class Sample {
                 }
             }
         }
-        MessageBox("Automizer", "Сортировка прошла успешно!", Alert.AlertType.INFORMATION);
+        MessageBox("Automizer", "Сортировка прошла успешно!", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -97,14 +82,23 @@ public class Sample {
         ++counter;
     }
 
-    public void MessageBox(String title, String message, Alert.AlertType type){
-        Alert alert = new Alert(type);
+    public static void MessageBox(String title, String message, int optionType, int messageType){
+        Component frame = new Component() {
+            @Override
+            public boolean isValid() {
+                return true;
+            }
+        };
+        Object[] options = {"ОК"};
 
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-
-        alert.showAndWait();
+        int n = JOptionPane.showOptionDialog(frame,
+                message,
+                title,
+                optionType,
+                messageType,
+                null,
+                options,
+                options[0]);
     }
 
 }

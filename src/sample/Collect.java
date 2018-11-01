@@ -1,5 +1,7 @@
 package sample;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -57,12 +59,46 @@ public class Collect {
         }
     }
 
+    String undefinedExtension(String str){
+        String type = "";
+        Component frame = new Component() {};
+        Object[] options = {"Музыка",
+                "Видео",
+                "Текст",
+                "Остальное"};
+        int n = JOptionPane.showOptionDialog(frame,
+                "Какой это тип файла имеет данное расширение: "
+                        + str,
+                "Выберите тип файла",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[2]);
+        System.out.println(n);
+        switch (n){
+            case 0:
+                type = "music";
+                break;
+            case 1:
+                type = "video";
+                break;
+            case 2:
+                type = "text";
+                break;
+            case 3:
+                type = "other";
+                break;
+        }
+        return type;
+    }
+
     void addCheck(String str){
         if(isContain(extention(str))) return;
         else {
             Scanner in = new Scanner(System.in);
             System.out.println("Undefined extention: " + extention(str) +" Enter type:");
-            String key  = in.next();
+            String key = undefinedExtension(extention(str));
             if (ext.containsKey(key)) {
                 ext.computeIfAbsent(key, k -> new HashSet<>()).add(extention(str));
             } else {

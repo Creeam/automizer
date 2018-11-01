@@ -10,8 +10,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        DataBase.Conn();
-        DataBase.CreateDB();
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Automizer");
         primaryStage.setScene(new Scene(root, 620, 380));

@@ -89,6 +89,8 @@ public class Controller implements Initializable{
         Date date = new Date();
         Sample sam = new Sample();
         SimpleDateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        DataBase.Conn();
+        DataBase.CreateDB();
         DataBase.insertInfo(mainPath, formatDate.format(date));
         System.out.println(musicPath);
         System.out.println(videoPath);
@@ -112,10 +114,10 @@ public class Controller implements Initializable{
        // ParantalControl pc = new ParantalControl();
         stage.setTitle("Automizer | Parantal Control");
         stage.setScene(scene);
-        stage.setMaxWidth(336);
-        stage.setMaxHeight(400);
-        stage.setMinWidth(336);
-        stage.setMinHeight(400);
+        stage.setMaxWidth(490);
+        stage.setMaxHeight(225);
+        stage.setMinWidth(490);
+        stage.setMinHeight(225);
         stage.show();
     }
 
@@ -131,7 +133,6 @@ public class Controller implements Initializable{
         stage.setMinWidth(306);
         stage.setMinHeight(200);
         stage.show();
-
     }
 
     public void onClickMethodHistoryButton() throws IOException{
