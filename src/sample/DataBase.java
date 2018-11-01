@@ -4,21 +4,10 @@ import java.sql.*;
 
 public class DataBase {
 
-    public static Connection conn;
-    public static Statement statmt;
-    public static ResultSet resSet;
-    private DataBase INSTANCE;
+    private static Connection conn;
+    private static Statement statmt;
+    private static ResultSet resSet;
 
-    public DataBase getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new DataBase();
-        }
-        return INSTANCE;
-    }
-
-    private DataBase() {
-
-    }
 
     // --------ПОДКЛЮЧЕНИЕ К БАЗЕ ДАННЫХ--------
     public static void Conn(){
@@ -59,6 +48,32 @@ public class DataBase {
     public static void insertInfo(String path, String date){
         try {
             statmt.execute("INSERT INTO Changes (Path, Date) VALUES ('"+ path +"', '"+ date +"');");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertPaths(String path, String pathOfFile){
+        try {
+            String id = "";
+            resSet = statmt.executeQuery("SELECT id FROM Changes WHERE Path = '"+ path +"'");
+            while(resSet.next()){
+                id = resSet.getString("id");
+            }
+            System.out.println("ID: " + id);
+            statmt.execute("INSERT INTO Paths (id, Path) VALUES ('"+ Integer.parseInt(id) +"', '"+ pathOfFile +"')");
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    // --------Закрытие соединения с БД--------
+    public static void closeConnection() {
+        try {
+            conn.close();
+            System.out.println("Соединение с БД закрыто.");
         }
         catch (SQLException e){
             e.printStackTrace();

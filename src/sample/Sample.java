@@ -3,10 +3,12 @@ package sample;
 import javafx.scene.control.Alert;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class Sample {
 
     private int counter;
+    private String mainPath;
 
     public String extention(String fullName) {
         //create by Vadimka
@@ -43,81 +45,53 @@ public class Sample {
 
     }
 
-    public void search(String path, String pathM, String pathV, String pathT, String pathD) throws IOException{
+    public void search(String path, String pathM, String pathV, String pathT, String pathO) throws IOException{
 
         File folder = new File(path);
+        Collect collect = new Collect();
+        this.mainPath = path;
 
         for(File f : folder.listFiles()){
-            switch (extention(f.getName())){
 
-                //-------------Music formats--------------
-                case ".mp3":
-                    System.out.println("МУЗОНН!!!!!!!!!" + "       " + f.getName());
-                    useInfo(pathM, f);
-                    break;
-                case ".wav":
-                    System.out.println("МУЗОНН!!!!!!!!!" + "       " + f.getName());
-                    useInfo(pathM, f);
-                    break;
+            if(f.isDirectory()){
+                System.out.println("Dir");
+            }
+            else {
+                collect.addCheck(f.getName());
 
-                //-------------Video formats--------------
-                case ".AVI":
-                    System.out.println("Видео!!!!");
-                    useInfo(pathV, f);
-                    break;
-                case ".mp4":
-                    System.out.println("Видео!!!!");
-                    useInfo(pathV, f);
-                    break;
-                case ".flv":
-                    System.out.println("Видео!!!!");
-                    useInfo(pathV, f);
-                    break;
-                case ".MOV":
-                    System.out.println("Видео!!!!");
-                    useInfo(pathV, f);
-                    break;
-
-                //-------------Documents formats--------------
-
-
-                //-------------Text formats--------------
-                case ".txt":
-                    System.out.println("Текстовые документы!!!!");
-                    useInfo(pathT, f);
-                    break;
-                case ".rtf":
-                    System.out.println("Текстовые документы!!!!");
-                    useInfo(pathT, f);
-                    break;
-                case ".doc":
-                    System.out.println("Текстовые документы!!!!");
-                    useInfo(pathT, f);
-                    break;
-                case ".docx":
-                    System.out.println("Текстовые документы!!!!");
-                    useInfo(pathT, f);
-                    break;
-                case ".pdf":
-                    System.out.println("Текстовые документы!!!!");
-                    useInfo(pathT, f);
-                    break;
-
-                //-------------Папка-----------------------------
-                case "0":
-                    System.out.println("Папка: " + f.getName());
-                    break;
-                default:
-                    System.out.println("Неизвестные расширения." + f.getName());
-                    break;
+                switch (collect.valKey(f.getName())) {
+                    case "music":
+                        collect.mapToTxt();
+                        useInfo(pathM, f);
+                        break;
+                    case "video":
+                        collect.mapToTxt();
+                        useInfo(pathV, f);
+                        break;
+                    case "text":
+                        collect.mapToTxt();
+                        useInfo(pathT, f);
+                        break;
+                    case "other":
+                        collect.mapToTxt();
+                        System.out.println(pathO);
+                        useInfo(pathO, f);
+                        break;
+                    default:
+                        System.out.println("Error!");
+                        break;
+                }
             }
         }
         MessageBox("Automizer", "Сортировка прошла успешно!", Alert.AlertType.INFORMATION);
+
     }
+
 
     public void useInfo(String path, File f) throws IOException{
         File dest;
         dest = new File(path + "\\" + f.getName());
+        DataBase.insertPaths(mainPath, dest.toString());
         System.out.println(dest.toPath());
         myMoveFile(f.toString(), dest.toString());
         ++counter;
