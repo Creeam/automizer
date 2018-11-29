@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -89,8 +90,8 @@ public class Controller implements Initializable{
         Date date = new Date();
         Sample sam = new Sample();
         SimpleDateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-        DataBase.Conn();
-        DataBase.CreateDB();
+        DataBase.conn();
+        DataBase.createDB();
         DataBase.insertInfo(mainPath, formatDate.format(date));
         System.out.println(musicPath);
         System.out.println(videoPath);
@@ -137,15 +138,12 @@ public class Controller implements Initializable{
 
     public void onClickMethodHistoryButton() throws IOException{
         Stage stage = new Stage();
-
         Parent root = FXMLLoader.load(getClass().getResource("history.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Automizer | History");
         stage.setScene(scene);
-        stage.setMaxWidth(336);
-        stage.setMaxHeight(400);
-        stage.setMinWidth(336);
-        stage.setMinHeight(400);
+        stage.setMinWidth(450);
+        stage.setMinHeight(450);
         stage.show();
     }
 

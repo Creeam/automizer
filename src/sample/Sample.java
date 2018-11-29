@@ -12,17 +12,6 @@ public class Sample {
     private int counter;
     private String mainPath;
 
-    public String extention(String fullName) {
-        //create by Vadimka
-        if(fullName.lastIndexOf(".") == -1){
-
-        }
-        else{
-            return fullName.substring(fullName.lastIndexOf("."));
-        }
-        return "0";
-    }
-
     public void myMoveFile(String start_file, String finish_flie) throws IOException {
         File source = new File(start_file);
         File dest = new File(finish_flie);
