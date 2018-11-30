@@ -5,10 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import services.database.DataBase;
+import sources.Sort;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 
-public class Controller implements Initializable{
+public class MainController implements Initializable{
 
     @FXML private TextField wayText;
     @FXML private TextField wayTextM;
@@ -34,11 +35,11 @@ public class Controller implements Initializable{
     private String textPath;
     private String otherPath;
 
-    DirectoryChooser fileopen;
+    DirectoryChooser fileOpen;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        fileopen = new DirectoryChooser();
+        fileOpen = new DirectoryChooser();
         readPathsFromFile();
     }
 
@@ -46,7 +47,7 @@ public class Controller implements Initializable{
      * Method allows user to do something
      */
     public void onClickMethodWayButton() {
-        wayText.setText(fileopen.showDialog(null).toString());
+        wayText.setText(fileOpen.showDialog(null).toString());
         mainPath = wayText.getText().toString();
     }
 
@@ -54,7 +55,7 @@ public class Controller implements Initializable{
      * Method allows user to do something on music path button
      */
     public void onClickMethodWayMButton(){
-        musicPath = fileopen.showDialog(null).toString();
+        musicPath = fileOpen.showDialog(null).toString();
         wayTextM.setText(musicPath);
     }
 
@@ -62,7 +63,7 @@ public class Controller implements Initializable{
      * Method allows user to do something on video path button
      */
     public void onClickMethodWayVButton(){
-        videoPath = fileopen.showDialog(null).toString();
+        videoPath = fileOpen.showDialog(null).toString();
         wayTextV.setText(videoPath);
     }
 
@@ -70,7 +71,7 @@ public class Controller implements Initializable{
      * Method allows user to do something on text path button
      */
     public void onClickMethodWayTButton(){
-        textPath = fileopen.showDialog(null).toString();
+        textPath = fileOpen.showDialog(null).toString();
         wayTextT.setText(textPath);
     }
 
@@ -78,7 +79,7 @@ public class Controller implements Initializable{
      * Method allows user to do something on document path button
      */
     public void onClickMethodWayOButton(){
-        otherPath = fileopen.showDialog(null).toString();
+        otherPath = fileOpen.showDialog(null).toString();
         wayTextO.setText(otherPath);
     }
 
@@ -88,7 +89,7 @@ public class Controller implements Initializable{
     public void onClickMethodSortButton(){
         System.out.println(mainPath);
         Date date = new Date();
-        Sample sam = new Sample();
+        Sort sam = new Sort();
         SimpleDateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         DataBase.conn();
         DataBase.createDB();
@@ -110,7 +111,7 @@ public class Controller implements Initializable{
     public void onClickMethodParantalControlButton() throws IOException{
         Stage stage = new Stage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("parantal control.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/parantal control.fxml"));
         Scene scene = new Scene(root);
        // ParantalControl pc = new ParantalControl();
         stage.setTitle("Automizer | Parantal Control");
@@ -124,9 +125,9 @@ public class Controller implements Initializable{
 
     public void onClickMethodTimerPowerButton() throws IOException{
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("power.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/power.fxml"));
         Scene scene = new Scene(root);
-        Power p = new Power();
+        PowerController p = new PowerController();
         stage.setTitle("Automizer | Timer");
         stage.setScene(scene);
         stage.setMaxWidth(306);
@@ -138,7 +139,7 @@ public class Controller implements Initializable{
 
     public void onClickMethodHistoryButton() throws IOException{
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("history.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/history.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Automizer | History");
         stage.setScene(scene);

@@ -1,4 +1,4 @@
-package controllers;
+package sources;
 
 import javax.swing.*;
 import java.awt.*;

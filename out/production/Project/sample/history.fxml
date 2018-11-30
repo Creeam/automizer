@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="512.0" style="-fx-background-color: #cccccc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HistoryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="512.0" style="-fx-background-color: #cccccc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HistoryController">
    <children>
       <Label layoutX="206.0" layoutY="-5.0" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #cccccc;" text="История" textFill="#7a7a7a" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="205.0">
          <font>

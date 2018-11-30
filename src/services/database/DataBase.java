@@ -1,4 +1,4 @@
-package controllers;
+package services.database;
 
 import javafx.scene.control.TextArea;
 

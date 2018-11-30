@@ -1,15 +1,14 @@
-package controllers;
+package sources;
 
-import javafx.scene.control.Alert;
-import jdk.nashorn.internal.scripts.JO;
+import services.database.DataBase;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.*;
 
-public class Sample {
+public class Sort {
 
-    private int counter;
     private String mainPath;
 
     public void myMoveFile(String start_file, String finish_flie) throws IOException {
@@ -19,11 +18,16 @@ public class Sample {
         source.delete();
     }
 
-    public void search(String path, String pathM, String pathV, String pathT, String pathO) throws IOException{
+    public void search(String path, String pathMusic, String pathVideo, String pathText, String pathOther) throws IOException{
 
         File folder = new File(path);
         Collect collect = new Collect();
         this.mainPath = path;
+        HashMap<String, String> typesMap = new HashMap<>();
+        typesMap.put("text", pathText);
+        typesMap.put("music", pathMusic);
+        typesMap.put("video", pathVideo);
+        typesMap.put("other", pathOther);
 
         for(File f : folder.listFiles()){
 
@@ -32,31 +36,11 @@ public class Sample {
             }
             else {
                 collect.addCheck(f.getName());
-
-                switch (collect.valKey(f.getName())) {
-                    case "music":
-                        collect.mapToTxt();
-                        useInfo(pathM, f);
-                        break;
-                    case "video":
-                        collect.mapToTxt();
-                        useInfo(pathV, f);
-                        break;
-                    case "text":
-                        collect.mapToTxt();
-                        useInfo(pathT, f);
-                        break;
-                    case "other":
-                        collect.mapToTxt();
-                        System.out.println(pathO);
-                        useInfo(pathO, f);
-                        break;
-                    default:
-                        System.out.println("Error!");
-                        break;
-                }
+                collect.valKey(f.getName());
+                useInfo(typesMap.get(collect.valKey(f.getName())),f);
             }
         }
+        collect.mapToTxt();
         MessageBox("Automizer", "Сортировка прошла успешно!", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
     }
@@ -68,7 +52,6 @@ public class Sample {
         DataBase.insertPaths(mainPath, dest.toString());
         System.out.println(dest.toPath());
         myMoveFile(f.toString(), dest.toString());
-        ++counter;
     }
 
     public static void MessageBox(String title, String message, int optionType, int messageType){
