@@ -97,30 +97,32 @@ public class MainController implements Initializable{
         System.out.println(musicPath);
         System.out.println(videoPath);
         System.out.println(textPath);
-        try {
-            sam.search(mainPath, musicPath, videoPath, textPath, otherPath);
-            writePathsInFile();
-            DataBase.closeConnection();
-        }
-        catch (IOException e){e.printStackTrace();}
+        sam.search(mainPath, musicPath, videoPath, textPath, otherPath);
+        writePathsInFile();
+        DataBase.closeConnection();
     }
 
     /***
      * Method allows user to do something on parantal control button
      */
-    public void onClickMethodParantalControlButton() throws IOException{
+    public void onClickMethodParantalControlButton(){
         Stage stage = new Stage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("../views/parantal control.fxml"));
-        Scene scene = new Scene(root);
-       // ParantalControl pc = new ParantalControl();
-        stage.setTitle("Automizer | Parantal Control");
-        stage.setScene(scene);
-        stage.setMaxWidth(490);
-        stage.setMaxHeight(225);
-        stage.setMinWidth(490);
-        stage.setMinHeight(225);
-        stage.show();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/parantal control.fxml"));
+            Scene scene = new Scene(root);
+            // ParantalControl pc = new ParantalControl();
+            stage.setTitle("Automizer | Parantal Control");
+            stage.setScene(scene);
+            stage.setMaxWidth(490);
+            stage.setMaxHeight(225);
+            stage.setMinWidth(490);
+            stage.setMinHeight(225);
+            stage.show();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void onClickMethodTimerPowerButton() throws IOException{
@@ -187,7 +189,6 @@ public class MainController implements Initializable{
         }
         catch (IOException e){
             System.out.println("Ошибка считывания из файла!");
-            e.printStackTrace();
         }
     }
 }

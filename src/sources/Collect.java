@@ -39,7 +39,6 @@ public class Collect {
             }
             scn.close();
         } catch (IOException e) {
-            System.out.println("Catched");
             e.printStackTrace();
             Files.createFile(Paths.get(key + ".txt"));
         }

@@ -11,42 +11,44 @@ public class Sort {
 
     private String mainPath;
 
-    public void myMoveFile(String start_file, String finish_flie) throws IOException {
+    public void myMoveFile(String start_file, String finish_file) {
         File source = new File(start_file);
-        File dest = new File(finish_flie);
+        File dest = new File(finish_file);
         source.renameTo(new File(dest.toString()));
         source.delete();
     }
 
-    public void search(String path, String pathMusic, String pathVideo, String pathText, String pathOther) throws IOException{
+    public void search(String path, String pathMusic, String pathVideo, String pathText, String pathOther){
+        try {
+            File folder = new File(path);
+            Collect collect = new Collect();
+            this.mainPath = path;
+            HashMap<String, String> typesMap = new HashMap<>();
+            typesMap.put("text", pathText);
+            typesMap.put("music", pathMusic);
+            typesMap.put("video", pathVideo);
+            typesMap.put("other", pathOther);
 
-        File folder = new File(path);
-        Collect collect = new Collect();
-        this.mainPath = path;
-        HashMap<String, String> typesMap = new HashMap<>();
-        typesMap.put("text", pathText);
-        typesMap.put("music", pathMusic);
-        typesMap.put("video", pathVideo);
-        typesMap.put("other", pathOther);
+            for (File f : folder.listFiles()) {
 
-        for(File f : folder.listFiles()){
-
-            if(f.isDirectory()){
-                System.out.println("Dir");
+                if (f.isDirectory()) {
+                    System.out.println("Dir");
+                } else {
+                    collect.addCheck(f.getName());
+                    collect.valKey(f.getName());
+                    useInfo(typesMap.get(collect.valKey(f.getName())), f);
+                }
             }
-            else {
-                collect.addCheck(f.getName());
-                collect.valKey(f.getName());
-                useInfo(typesMap.get(collect.valKey(f.getName())),f);
-            }
+            collect.mapToTxt();
         }
-        collect.mapToTxt();
+        catch (IOException e){
+            e.printStackTrace();
+        }
         MessageBox("Automizer", "Сортировка прошла успешно!", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
     }
 
 
-    public void useInfo(String path, File f) throws IOException{
+    public void useInfo(String path, File f){
         File dest;
         dest = new File(path + "\\" + f.getName());
         DataBase.insertPaths(mainPath, dest.toString());
