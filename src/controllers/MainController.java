@@ -115,9 +115,9 @@ public class MainController implements Initializable{
             stage.setTitle("Automizer | Parantal Control");
             stage.setScene(scene);
             stage.setMaxWidth(490);
-            stage.setMaxHeight(225);
+            stage.setMaxHeight(260);
             stage.setMinWidth(490);
-            stage.setMinHeight(225);
+            stage.setMinHeight(260);
             stage.show();
         }
         catch (IOException e){
