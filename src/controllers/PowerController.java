@@ -34,13 +34,28 @@ public class PowerController implements Initializable {
     }
 
     public void shutDown(int hour, int min){
-        String command = "shutdown " + "/s " + "/t " + ((hour * 3600) + (min * 60));
-        try {
-            System.out.println(command);
-            Process process = Runtime.getRuntime().exec(command);
-        }
-        catch (IOException e){
-            e.printStackTrace();
+        String osName = System.getProperty("os.name");
+        String command;
+        switch (osName) {
+            case "Linux": command = "sudo shutdown " + "-h " + "+" + ((hour * 60) + min) + " Компьютер будет выключен через " + ((hour * 60) + min) + " минут";
+                          try {
+                              System.out.println(command);
+                              Process process = Runtime.getRuntime().exec(command);
+                          } catch (IOException e) {
+                              e.printStackTrace();
+                          }
+                          break;
+            case "Windows": command = "shutdown " + "/s " + "/t " + ((hour * 3600) + (min * 60));
+                            try {
+                                System.out.println(command);
+                                Process process = Runtime.getRuntime().exec(command);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+            default:
+                System.out.println("Don't support this system.");
+                break;
         }
     }
 

@@ -10,6 +10,7 @@ import java.util.*;
 public class Sort {
 
     private String mainPath;
+    private String osName;
 
     public void myMoveFile(String start_file, String finish_file) {
         File source = new File(start_file);
@@ -19,6 +20,7 @@ public class Sort {
     }
 
     public void search(String path, String pathMusic, String pathVideo, String pathText, String pathOther){
+        osName = System.getProperty("os.name");
         try {
             File folder = new File(path);
             Collect collect = new Collect();
@@ -49,11 +51,25 @@ public class Sort {
 
 
     public void useInfo(String path, File f){
+        System.out.println(osName);
         File dest;
-        dest = new File(path + "\\" + f.getName());
-        DataBase.insertPaths(mainPath, dest.toString());
-        System.out.println(dest.toPath());
-        myMoveFile(f.toString(), dest.toString());
+        switch (osName){
+            case "Linux":
+                          dest = new File(path + "/" + f.getName());
+                          DataBase.insertPaths(mainPath, dest.toString());
+                          System.out.println(dest.toPath());
+                          myMoveFile(f.toString(), dest.toString());
+                          break;
+            case "Windows":
+                          dest = new File(path + "\\" + f.getName());
+                          DataBase.insertPaths(mainPath, dest.toString());
+                          System.out.println(dest.toPath());
+                          myMoveFile(f.toString(), dest.toString());
+                          break;
+            default:
+                System.out.println("Don't support this system.");
+                break;
+        }
     }
 
     public static void MessageBox(String title, String message, int optionType, int messageType){

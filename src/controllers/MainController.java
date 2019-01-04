@@ -41,6 +41,7 @@ public class MainController implements Initializable{
     public void initialize(URL url, ResourceBundle rb){
         fileOpen = new DirectoryChooser();
         readPathsFromFile();
+        System.out.println(System.getProperty("os.name"));
     }
 
     /***

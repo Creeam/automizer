@@ -14,7 +14,7 @@ public class ParantalControlController implements Initializable {
     @FXML private Spinner hourSpinner;
     @FXML private Spinner minuteSpinner;
 
-    private ParantalControl pc;
+    ParantalControl pc;
 
     public void initialize(URL ur, ResourceBundle rs){
         SpinnerValueFactory valueFactoryH = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 24, 0);
